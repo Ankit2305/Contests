@@ -69,6 +69,7 @@ class ContestHorizontalAdapter(val contests: List<Contest>): RecyclerView.Adapte
         val contest = contests[position]
         val logoResource = getResourceIdFromSite(contest.site)
 
+        //println("${contest.name}")
         val name = if(contest.name.length > 30) contest.name.substring(0..27) + "..." else contest.name
 
         holder?.itemView.logo_imageView.setImageResource(logoResource)

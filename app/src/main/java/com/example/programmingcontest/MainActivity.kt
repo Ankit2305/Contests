@@ -12,7 +12,25 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
-    val contestManager = ContestManager()
+
+    //Customize Feeds here
+    val feedOrder = listOf(
+        listOf(IN24HOURS, true),
+        listOf(ONGOING, false),
+        listOf(ALLUPCOMING, false),
+        listOf(SHORT, false),
+        listOf(LONG, false),
+        listOf(CODECHEF, false),
+        listOf(CODEFORCES, false),
+        listOf(HACKERRANK, false),
+        listOf(HACKEREARTH, false),
+        listOf(LEETCODE, false),
+        listOf(KICKSTART, false),
+        listOf(ATCODER, false),
+        listOf(TOPCODER, false),
+        listOf(CSACADEMY, false)
+    )
+    val contestManager = ContestManager(feedOrder = feedOrder)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -28,10 +28,7 @@ fun getResourceIdFromSite(site: String): Int{
 
 fun getDurationFromSeconds(seconds: String): String{
     //val durationString = ""
-    var duration: Long = when(val decimalPosition = seconds.indexOf('.')){
-        -1 -> seconds.toLong()
-        else -> seconds.substring(0 until decimalPosition).toLong()
-    }
+    val duration = getLongFromString(seconds)
     return getDurationFromSeconds(duration)
 }
 
@@ -76,4 +73,12 @@ fun getContestsFromJSON(json: String): List<Contest>{
     }
 
     return contests.toList()
+}
+
+fun getLongFromString(value: String): Long{
+    var valueInLong: Long = when(val decimalPosition = value.indexOf('.')){
+        -1 -> value.toLong()
+        else -> value.substring(0 until decimalPosition).toLong()
+    }
+    return valueInLong;
 }

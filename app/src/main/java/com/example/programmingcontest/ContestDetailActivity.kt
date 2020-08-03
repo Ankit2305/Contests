@@ -26,7 +26,7 @@ class ContestDetailActivity : AppCompatActivity() {
         val url = intent.getStringExtra(ContestViewHolder.URL_KEY)
         val startTime = intent.getLongExtra(ContestViewHolder.START_TIME_KEY, 0)
         val endTime = intent.getLongExtra(ContestViewHolder.END_TIME_KEY, 0)
-        val duration = intent.getStringExtra(ContestViewHolder.DURATION_KEY)
+        val duration = intent.getLongExtra(ContestViewHolder.DURATION_KEY, 0)
         val in_24_hours = intent.getBooleanExtra(ContestViewHolder.IN_24_HOURS_KEY, false)
         val ongoing = intent.getBooleanExtra(ContestViewHolder.ONGOING_KEY, false)
 

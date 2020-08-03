@@ -2,120 +2,91 @@ package com.example.programmingcontest
 
 import java.io.Serializable
 
-class ContestManager() {
+class ContestManager(val feedOrder: List<List<Any>>) {
+    val categoryNames = listOf(
+        "In 24 Hours",
+        "All Upcoming",
+        "Ongoing",
+        "CodeChef Upcoming",
+        "CodeForces Upcoming",
+        "HackerRank Upcoming",
+        "HackerEarth Upcoming",
+        "AtCoder Upcoming",
+        "TopCoder Upcoming",
+        "Kick Start Upcoming",
+        "CS Academy Upcoming",
+        "Short",
+        "Long",
+        "LeetCode Upcoming"
+    )
+
     var contestsCategories: List<ContestCategory> = listOf()
 
     fun init(contests: List<Contest>){
         var mutableContests = mutableListOf<ContestCategory>()
 
-        var in24Hours = mutableListOf<Contest>()
-        var allUpcoming = mutableListOf<Contest>()
-        var ongoing = mutableListOf<Contest>()
-        var codechef = mutableListOf<Contest>()
-        var codeforces = mutableListOf<Contest>()
-        var hackerrank = mutableListOf<Contest>()
-        var hackerearth = mutableListOf<Contest>()
-        var atcoder = mutableListOf<Contest>()
-        var topcoder = mutableListOf<Contest>()
-        var kickstart = mutableListOf<Contest>()
-
+        var feeds = listOf(
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>(),
+            mutableListOf<Contest>()
+        )
 
         for(contest in contests){
             if(contest.ongoing)
-                ongoing.add(contest)
+                feeds[ONGOING].add(contest)
             else {
-                allUpcoming.add(contest)
+                feeds[ALLUPCOMING].add(contest)
 
                 when(contest.site){
-                    "CodeChef" -> codechef.add(contest)
-                    "CodeForces" -> codeforces.add(contest)
-                    "HackerRank" -> hackerrank.add(contest)
-                    "HackerEarth" -> hackerearth.add(contest)
-                    "AtCoder" -> atcoder.add(contest)
-                    "TopCoder" -> topcoder.add(contest)
-                    "Kick Start" -> kickstart.add(contest)
+                    "CodeChef" -> feeds[CODECHEF].add(contest)
+                    "CodeForces" -> feeds[CODEFORCES].add(contest)
+                    "HackerRank" -> feeds[HACKERRANK].add(contest)
+                    "HackerEarth" -> feeds[HACKEREARTH].add(contest)
+                    "AtCoder" -> feeds[ATCODER].add(contest)
+                    "TopCoder" -> feeds[TOPCODER].add(contest)
+                    "Kick Start" -> feeds[KICKSTART].add(contest)
+                    "CS Academy" -> feeds[CSACADEMY].add(contest)
+                    "LeetCode" -> feeds[LEETCODE].add(contest)
+                }
+
+                if(contest.duration <= 18000){
+                    feeds[SHORT].add(contest)
+                } else {
+                    feeds[LONG].add(contest)
                 }
             }
 
             if(contest.in_24_hours)
-                in24Hours.add(contest)
+                feeds[IN24HOURS].add(contest)
 
         }
 
-        ongoing.sortWith(compareBy{
+        feeds[ONGOING].sortWith(compareBy{
             it.end_time
         })
 
-        mutableContests.add(
-            ContestCategory(
-                "In 24 Hours",
-                in24Hours,
-                true
+        for(currentFeed in feedOrder){
+            val index = currentFeed[0] as Int
+            val vertical = currentFeed[1] as Boolean
+            mutableContests.add(
+                ContestCategory(
+                    categoryNames[index],
+                    feeds[index],
+                    vertical
+                )
             )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "Ongoing",
-                ongoing,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "All Upcoming",
-                allUpcoming,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "CodeChef Upcoming",
-                codechef,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "CodeForces Upcoming",
-                codeforces,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "HackerRank Upcoming",
-                hackerrank,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "HackerEarth Upcoming",
-                hackerearth,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "AtCoder Upcoming",
-                atcoder,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "Kick Start Upcoming",
-                kickstart,
-                false
-            )
-        )
-        mutableContests.add(
-            ContestCategory(
-                "TopCoder Upcoming",
-                topcoder,
-                false
-            )
-        )
+        }
 
         contestsCategories = mutableContests.toList()
     }

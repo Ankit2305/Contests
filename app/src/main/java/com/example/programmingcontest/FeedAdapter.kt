@@ -15,6 +15,7 @@ class FeedAdapter(val contestManager: ContestManager): RecyclerView.Adapter<Feed
         return FeedViewHolder(view)
     }
 
+    //TODO fix kick start error
     override fun getItemCount(): Int {
         return contestManager.contestsCategories.size
     }
@@ -22,9 +23,9 @@ class FeedAdapter(val contestManager: ContestManager): RecyclerView.Adapter<Feed
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val contestCategory = contestManager.contestsCategories[position]
 
-        if(contestCategory.contests.size == 0)
-            holder?.itemView.contest_recyclerView.visibility = View.GONE
-        else {
+        if(contestCategory.contests.isEmpty()) {
+            holder?.itemView.noContest_textView.visibility = View.VISIBLE
+        } else {
             holder?.itemView.noContest_textView.visibility = View.GONE
         }
 

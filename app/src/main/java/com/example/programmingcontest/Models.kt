@@ -1,5 +1,6 @@
 package com.example.programmingcontest
 
+import com.example.programmingcontest.utils.getLongFromString
 import java.io.Serializable
 import java.time.Instant
 
@@ -29,8 +30,8 @@ class ContestRaw(
 
         if(end < currentDateAndTime)
             return null
-        return Contest(name, url, start, end, duration, site,
-            in_24_hours == "Yes", status == "CODING"
+        return Contest(name, url, start, end, getLongFromString(duration), site,
+            (start > currentDateAndTime && start - currentDateAndTime <= 86400000), start <= currentDateAndTime
         )
     }
 }
@@ -40,7 +41,7 @@ class Contest(
     val url: String,
     val start_time: Long,
     val end_time: Long,
-    val duration: String,
+    val duration: Long,
     val site: String,
     val in_24_hours: Boolean,
     val ongoing: Boolean
