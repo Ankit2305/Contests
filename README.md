@@ -14,7 +14,7 @@ Contests is an Android app which contains the information about upcoming program
  This app also allows users to add the contest available in the app to the Google Calendar.
 # Screenshots
 
-![enter image description here](https://raw.githubusercontent.com/Ankit2305/ImageResources/master/Contests%20ImageResources/screenshot1.png =300x) |![enter image description here](https://raw.githubusercontent.com/Ankit2305/ImageResources/master/Contests%20ImageResources/screenshot2.png =300x) 
+![enter image description here](https://raw.githubusercontent.com/Ankit2305/ImageResources/master/Contests%20ImageResources/screenshot1.png =300x) ![enter image description here](https://raw.githubusercontent.com/Ankit2305/ImageResources/master/Contests%20ImageResources/screenshot2.png =300x) 
 ![enter image description here](https://raw.githubusercontent.com/Ankit2305/ImageResources/master/Contests%20ImageResources/screenshot3.png =300x)
 
 ---
