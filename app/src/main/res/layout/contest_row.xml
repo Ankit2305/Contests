@@ -5,12 +5,17 @@
     android:id="@+id/row_Layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="1dp"
+    android:background="@drawable/white_card"
     android:padding="8dp">
 
     <ImageView
         android:id="@+id/logo_imageView"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +25,9 @@
         android:id="@+id/contestTitle_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textColor="#171717"
         android:textSize="16sp"
@@ -65,20 +72,11 @@
         android:id="@+id/duration_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/endTime_textView"
         app:layout_constraintStart_toStartOf="@+id/startTime_textView"
         app:layout_constraintTop_toBottomOf="@+id/startTime_textView" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="#171717"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/duration_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
