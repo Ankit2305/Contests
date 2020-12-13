@@ -4,12 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.explore.ExploreFragment">
+    tools:context=".ui.site.SiteFragment">
+
+    <TextView
+        android:id="@+id/labelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contests in 24 Hours"
+        android:padding="8dp"
+        android:textColor="#171717"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contestRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/labelTextView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/contest_list_item" />
 

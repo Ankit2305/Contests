@@ -1,15 +1,15 @@
-package com.example.programmingcontest.ui.explore.adapter
+package com.example.programmingcontest.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.programmingcontest.core.model.Contest
 import com.example.programmingcontest.core.model.Site
-import com.example.programmingcontest.databinding.ContestListItemBinding
+import com.example.programmingcontest.databinding.SiteListItemBinding
+import com.example.programmingcontest.utils.getResourceIdFromSite
 
-class SiteAdapter():
+class SiteAdapter(private val siteClickListener: SiteClickListener):
     ListAdapter<Site, SiteAdapter.SiteViewHolder>(DIFF_CALLBACK) {
 
     companion object {
@@ -24,23 +24,31 @@ class SiteAdapter():
         }
     }
 
-    class SiteViewHolder(val binding: ContestListItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class SiteViewHolder(val binding: SiteListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(site: Site) {
+        fun bind(site: Site, siteClickListener: SiteClickListener) {
             binding.apply {
-                contestTitleTextView.text = site.name
+                siteTextView.text = site.name
+                logoImageView.setImageResource(getResourceIdFromSite(site.name))
+                root.setOnClickListener {
+                    siteClickListener.onClick(site.name)
+                }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SiteViewHolder {
-        val binding = ContestListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = SiteListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SiteViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: SiteViewHolder, position: Int) {
-        holder.bind(getSiteAt(position))
+        holder.bind(getSiteAt(position), siteClickListener)
     }
 
     fun getSiteAt(position: Int) = getItem(position)
+
+    interface SiteClickListener {
+        fun onClick(site: String)
+    }
 }

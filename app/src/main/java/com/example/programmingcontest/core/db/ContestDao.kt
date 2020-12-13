@@ -26,7 +26,7 @@ interface ContestDao {
     fun getContestsIn24Hour(currentTime: Long): LiveData<List<Contest>>
 
     @Query("SELECT * FROM contest_table WHERE site = :site ORDER BY start_time")
-    fun getContestsOfSite(site: String): LiveData<List<Contest>>
+    fun getContestsOfSite(site: String): List<Contest>
 
     @Query("SELECT * FROM contest_table WHERE name = :name")
     fun searchContest(name: String): List<Contest>

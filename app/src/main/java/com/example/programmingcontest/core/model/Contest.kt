@@ -1,11 +1,13 @@
 package com.example.programmingcontest.core.model
 
+import android.os.Parcelable
+import androidx.lifecycle.LiveData
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "contest_table")
 data class Contest(
     @PrimaryKey
@@ -27,4 +29,4 @@ data class Contest(
     val in_24_hours: Boolean,
 
     val ongoing: Boolean
-): Serializable
+): Parcelable

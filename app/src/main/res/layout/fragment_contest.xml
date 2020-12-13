@@ -7,7 +7,7 @@
     android:layout_margin="8dp"
     android:layout_marginVertical="8dp"
     android:background="@drawable/white_card"
-    tools:context=".ContestDetailActivity">
+    tools:context=".ui.contest.ContestFragment">
 
     <LinearLayout
         android:id="@+id/duration_layout"
@@ -22,17 +22,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/logo_imageView"
+            android:id="@+id/logoImageView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:layout_margin="8dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/name_textView"
+            android:id="@+id/contestTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            tools:text="Contest Titile"
             android:textAlignment="center"
             android:textColor="#171717"
             android:textSize="18sp" />
@@ -46,7 +46,6 @@
             android:background="#CFCFCF" />
 
         <TextView
-            android:id="@+id/start_time_lable_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -57,7 +56,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/start_time_date_textView"
+            android:id="@+id/startDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -67,7 +66,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/start_time_time_textView"
+            android:id="@+id/startTimeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -77,7 +76,6 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/end_time_label_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -90,7 +88,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/end_time_date_textView"
+            android:id="@+id/endDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -100,7 +98,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/end_time_time_textView"
+            android:id="@+id/endTimeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -111,7 +109,6 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/duration_label_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -125,7 +122,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/duration_textView"
+            android:id="@+id/durationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -146,7 +143,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/reminder_Button"
+        android:id="@+id/reminderButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -156,12 +153,12 @@
         android:paddingHorizontal="10dp"
         android:text="Set Reminder"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/view_Button"
+        app:layout_constraintBottom_toTopOf="@+id/viewButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/view_Button"
+        android:id="@+id/viewButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
