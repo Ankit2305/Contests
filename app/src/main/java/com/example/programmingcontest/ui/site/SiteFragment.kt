@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.programmingcontest.R
 import com.example.programmingcontest.databinding.FragmentSiteBinding
 import com.example.programmingcontest.ui.adapters.SiteAdapter
+import com.example.programmingcontest.ui.listcontest.ListContestTypes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,15 +26,15 @@ class SiteFragment : Fragment(R.layout.fragment_site) {
         val binding = FragmentSiteBinding.bind(view)
         val adapter = SiteAdapter(object: SiteAdapter.SiteClickListener {
             override fun onClick(site: String) {
-                val action = SiteFragmentDirections.actionExploreFragmentToListContestFragment(0, site)
+                val action = SiteFragmentDirections.actionExploreFragmentToListContestFragment(ListContestTypes.SITE, site)
                 navController.navigate(action)
             }
 
         })
 
         binding.apply {
-            siteRecylerView.setHasFixedSize(true)
-            siteRecylerView.adapter = adapter
+            siteRecyclerView.setHasFixedSize(true)
+            siteRecyclerView.adapter = adapter
         }
 
         viewModel.sites.observe(viewLifecycleOwner) {

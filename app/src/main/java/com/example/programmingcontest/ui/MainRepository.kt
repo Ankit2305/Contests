@@ -6,6 +6,7 @@ import com.example.programmingcontest.core.db.ContestDatabase
 import com.example.programmingcontest.core.model.Site
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,8 +22,12 @@ class MainRepository @Inject constructor(
 
     fun updateDB() {
         GlobalScope.launch {
-            updateContests()
-            updateSites()
+            try {
+                updateContests()
+                updateSites()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 

@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/colorPrimary" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -14,6 +21,7 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         android:layout_above="@id/bottomNav"
+        android:layout_below="@id/toolbar"
         app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

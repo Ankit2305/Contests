@@ -36,7 +36,7 @@
             app:destination="@id/contestFragment" />
         <argument
             android:name="type"
-            app:argType="integer" />
+            app:argType="com.example.programmingcontest.ui.listcontest.ListContestTypes" />
         <argument
             android:name="value"
             app:argType="string" />

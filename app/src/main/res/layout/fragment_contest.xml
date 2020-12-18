@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:layout_marginVertical="8dp"
-    android:background="@drawable/white_card"
     tools:context=".ui.contest.ContestFragment">
 
     <LinearLayout
@@ -32,10 +31,11 @@
             android:id="@+id/contestTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Contest Titile"
+            android:paddingHorizontal="4dp"
             android:textAlignment="center"
             android:textColor="#171717"
-            android:textSize="18sp" />
+            android:textSize="17sp"
+            tools:text="Contest Titile" />
 
         <View
             android:id="@+id/view"
@@ -52,8 +52,7 @@
             android:text="START TIME"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/startDateTextView"
@@ -84,8 +83,7 @@
             android:text="END TIME"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/endDateTextView"
@@ -118,8 +116,7 @@
             android:text="DURATION"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/durationTextView"

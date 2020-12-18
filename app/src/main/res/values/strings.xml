@@ -3,4 +3,7 @@
     <string name="contest">Contests</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_contest_subtext">Looks like there are no contests here. You can check other categories for more contests.</string>
+    <string name="no_contest_text">No Contest Here</string>
+    <string name="contests_in_24_hours">Contests in 24 Hours</string>
 </resources>

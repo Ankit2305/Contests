@@ -45,6 +45,10 @@ class ListContestFragment: Fragment(R.layout.fragment_listcontest) {
         }
 
         viewModel.contests.observe(viewLifecycleOwner, Observer {
+            if(it.isEmpty())
+                binding.noContestMessage.visibility = View.VISIBLE
+            else
+                binding.noContestMessage.visibility = View.GONE
             adapter.submitList(it)
         })
     }

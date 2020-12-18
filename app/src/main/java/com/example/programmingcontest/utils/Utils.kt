@@ -20,6 +20,16 @@ fun getResourceIdFromSite(site: String): Int{
     }
 }
 
+fun getResourceIdFromCategory(category: String): Int {
+    return when(category) {
+        "Long" -> R.drawable.ic_long
+        "Short" -> R.drawable.ic_short
+        "Ongoing" -> R.drawable.ic_ongoing
+        "Upcoming" -> R.drawable.ic_upcoming
+        else -> R.drawable.empty
+    }
+}
+
 fun getDateAndFromMillis(millis: Long): String {
     val simpleDateFormat = SimpleDateFormat("HH:mm a, dd MMM", Locale.US)
     return simpleDateFormat.format(Date(millis))

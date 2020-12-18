@@ -10,9 +10,10 @@
         android:id="@+id/labelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contests in 24 Hours"
+        android:layout_marginStart="8dp"
+        android:text="@string/contests_in_24_hours"
         android:padding="8dp"
-        android:textColor="#171717"/>
+        android:textColor="@color/colorPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contestRecyclerView"
@@ -21,13 +22,5 @@
         android:layout_below="@id/labelTextView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/contest_list_item" />
-
-    <ProgressBar
-        android:id="@+id/contestProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        tools:visibility="visible" />
 
 </RelativeLayout>

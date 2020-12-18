@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 class ListContestViewModel @ViewModelInject constructor(val repository: ListContestRepository): ViewModel() {
     val contests = MutableLiveData<List<Contest>>()
 
-    fun getContest(type: Int, value: String) {
+    fun getContest(type: ListContestTypes, value: String) {
         GlobalScope.launch {
             val updatedContests = repository.getContest(type, value)
             withContext(Dispatchers.Main) {

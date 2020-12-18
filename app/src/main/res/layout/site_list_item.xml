@@ -19,7 +19,7 @@
             android:layout_height="75dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            tools:src="@drawable/codechef" />
+            tools:src="@drawable/ic_long" />
 
         <TextView
             android:id="@+id/siteTextView"
@@ -32,7 +32,7 @@
             android:textColor="#272727"
             android:textSize="16sp"
             android:layout_margin="16dp"
-            tools:text="Contest Title is very good thing to do and you all should" />
+            tools:text="Site/Category Title" />
 
     </RelativeLayout>
 
