@@ -1,9 +1,15 @@
 package com.example.programmingcontest.ui
 
+import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -32,6 +38,24 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         viewModel.updateDB()
+        viewModel.checkVersion()
+
+        viewModel.isLatestVersionAvailable.observe(this) {
+            if(it) {
+                AlertDialog.Builder(this)
+                    .setTitle("Newer Version Available")
+                    .setMessage("A newer version of the Contests App is available. ")
+                    .setPositiveButton("Download", object: DialogInterface.OnClickListener {
+                        override fun onClick(p0: DialogInterface?, p1: Int) {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Ankit2305/Contests/releases/"))
+                            startActivity(intent)
+                        }
+                    })
+                    .setNegativeButton("Close", null)
+                    .setIcon(R.drawable.ic_launcher_foreground)
+                    .show()
+            }
+        }
     }
 
     override fun onStart() {
