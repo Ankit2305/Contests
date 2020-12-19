@@ -1,11 +1,12 @@
 package com.example.programmingcontest.ui
 
-import android.util.Log
 import com.example.programmingcontest.core.api.KontestsApi
 import com.example.programmingcontest.core.db.ContestDatabase
+import com.example.programmingcontest.core.model.ContestsAppVersion
 import com.example.programmingcontest.core.model.Site
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.lang.Exception
 import java.time.Instant
 import javax.inject.Inject
@@ -19,7 +20,6 @@ class MainRepository @Inject constructor(
     val contestDao = contestDatabase.contestDao()
     val siteDao = contestDatabase.siteDao()
 
-
     fun updateDB() {
         GlobalScope.launch {
             try {
@@ -28,6 +28,14 @@ class MainRepository @Inject constructor(
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    fun getLatestVersion() = runBlocking {
+        try {
+            fetchLatestVersion()
+        } catch (e: Exception) {
+            ContestsAppVersion.currentVersion()
         }
     }
 
@@ -56,5 +64,9 @@ class MainRepository @Inject constructor(
             if(contest.end_time < currentTime)
                 contestDao.delete(contest)
         }
+    }
+
+    private suspend fun fetchLatestVersion(): ContestsAppVersion {
+        return kontestsApi.getLatestVersion(ContestsAppVersion.LATEST_VERSION_URL)
     }
 }
