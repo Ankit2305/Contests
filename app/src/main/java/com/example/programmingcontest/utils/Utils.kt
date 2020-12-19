@@ -1,13 +1,7 @@
 package com.example.programmingcontest.utils
 
-import android.annotation.SuppressLint
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.programmingcontest.*
-import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_contests.*
 import java.text.SimpleDateFormat
-import java.time.Instant
 import java.util.*
 
 fun getResourceIdFromSite(site: String): Int{
@@ -26,15 +20,41 @@ fun getResourceIdFromSite(site: String): Int{
     }
 }
 
+fun getResourceIdFromCategory(category: String): Int {
+    return when(category) {
+        "Long" -> R.drawable.ic_long
+        "Short" -> R.drawable.ic_short
+        "Ongoing" -> R.drawable.ic_ongoing
+        "Upcoming" -> R.drawable.ic_upcoming
+        else -> R.drawable.empty
+    }
+}
+
+fun getDateAndFromMillis(millis: Long): String {
+    val simpleDateFormat = SimpleDateFormat("HH:mm a, dd MMM", Locale.US)
+    return simpleDateFormat.format(Date(millis))
+}
+
+fun getDateFromMillis(millis: Long): String {
+    val simpleDateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.US)
+    return simpleDateFormat.format(Date(millis))
+}
+
+fun getTimeFromMillis(millis: Long): String {
+    val simpleDateFormat = SimpleDateFormat("HH:mm a", Locale.US)
+    return simpleDateFormat.format(Date(millis))
+}
+
+
 fun getDurationFromSeconds(seconds: String): String{
     //val durationString = ""
     val duration = getLongFromString(seconds)
-    return getDurationFromSeconds(duration)
+    return getDurationFromMillis(duration)
 }
 
-fun getDurationFromSeconds(seconds: Long): String{
+fun getDurationFromMillis(millis: Long): String{
     //TODO duration gives approx duration make it more precise
-    var duration = seconds
+    var duration = millis
     val years: Long = (duration / 31536000)
     duration %= 31536000
     val months: Long = (duration / 2592000)
@@ -57,22 +77,6 @@ fun getDurationFromSeconds(seconds: Long): String{
         durationString += minutes.toString() + "min"
 
     return durationString
-}
-
-
-fun getContestsFromJSON(json: String): List<Contest>{
-    val gson = GsonBuilder().create()
-
-    val contestRaw = gson.fromJson(json, Array<ContestRaw>::class.java)
-    val contests: MutableList<Contest> = emptyArray<Contest>().toMutableList()
-
-    for(item in contestRaw){
-        val contest = item.getContest()
-        if(contest != null)
-            contests.add(contest)
-    }
-
-    return contests.toList()
 }
 
 fun getLongFromString(value: String): Long{

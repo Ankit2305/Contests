@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            tools:src="@drawable/codechef" />
+
+        <TextView
+            android:id="@+id/contestTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/logoImageView"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@id/logoImageView"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#272727"
+            android:textSize="16sp"
+            tools:text="Contest Title is very good thing to do and you all should" />
+
+        <TextView
+            android:id="@+id/contestDetailsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contestTitleTextView"
+            android:layout_alignStart="@id/contestTitleTextView"
+            android:layout_marginEnd="16dp"
+            android:textColor="#777777"
+            android:layout_marginTop="4dp"
+            android:textSize="13sp"
+            tools:text="18 Nov 12:00 AM - 18 Nov 3:00PM" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

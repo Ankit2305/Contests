@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.programmingcontest.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_listContestFragment"
+            app:destination="@id/listContestFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contestFragment"
+            app:destination="@id/contestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.programmingcontest.ui.site.SiteFragment"
+        android:label="Sites"
+        tools:layout="@layout/fragment_site">
+        <action
+            android:id="@+id/action_exploreFragment_to_listContestFragment"
+            app:destination="@id/listContestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listContestFragment"
+        android:name="com.example.programmingcontest.ui.listcontest.ListContestFragment"
+        android:label="{value}"
+        tools:layout="@layout/fragment_listcontest" >
+        <action
+            android:id="@+id/action_listContestFragment_to_contestFragment"
+            app:destination="@id/contestFragment" />
+        <argument
+            android:name="type"
+            app:argType="com.example.programmingcontest.ui.listcontest.ListContestTypes" />
+        <argument
+            android:name="value"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/contestFragment"
+        android:name="com.example.programmingcontest.ui.contest.ContestFragment"
+        android:label="Contest"
+        tools:layout="@layout/fragment_contest" >
+        <argument
+            android:name="contest"
+            app:argType="com.example.programmingcontest.core.model.Contest" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.programmingcontest.ui.categories.CategoriesFragment"
+        android:label="Category"
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_categoriesFragment_to_listContestFragment"
+            app:destination="@id/listContestFragment" />
+    </fragment>
+</navigation>

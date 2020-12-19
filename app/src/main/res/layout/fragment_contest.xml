@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:layout_marginVertical="8dp"
-    android:background="@drawable/white_card"
-    tools:context=".ContestDetailActivity">
+    tools:context=".ui.contest.ContestFragment">
 
     <LinearLayout
         android:id="@+id/duration_layout"
@@ -22,20 +21,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/logo_imageView"
+            android:id="@+id/logoImageView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:layout_margin="8dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/name_textView"
+            android:id="@+id/contestTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:paddingHorizontal="4dp"
             android:textAlignment="center"
             android:textColor="#171717"
-            android:textSize="18sp" />
+            android:textSize="17sp"
+            tools:text="Contest Titile" />
 
         <View
             android:id="@+id/view"
@@ -43,21 +43,20 @@
             android:layout_height="1dp"
             android:layout_marginHorizontal="8dp"
             android:layout_marginVertical="24dp"
-            android:background="#CFCFCF" />
+            android:alpha="0.25"
+            android:background="@android:color/black" />
 
         <TextView
-            android:id="@+id/start_time_lable_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="START TIME"
+            android:text="Start"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/start_time_date_textView"
+            android:id="@+id/startDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -67,7 +66,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/start_time_time_textView"
+            android:id="@+id/startTimeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -77,20 +76,18 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/end_time_label_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="END TIME"
+            android:text="End"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/end_time_date_textView"
+            android:id="@+id/endDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -100,7 +97,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/end_time_time_textView"
+            android:id="@+id/endTimeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -111,21 +108,18 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/duration_label_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="4dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="DURATION"
+            android:text="Duration"
             android:textAlignment="center"
             android:textColor="#272727"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/duration_textView"
+            android:id="@+id/durationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -146,7 +140,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/reminder_Button"
+        android:id="@+id/reminderButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -154,14 +148,14 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
         android:paddingHorizontal="10dp"
-        android:text="Set Reminder"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/view_Button"
+        android:text="Add to Google Calendar"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/viewButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/view_Button"
+        android:id="@+id/viewButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -170,7 +164,7 @@
         android:background="@drawable/button_background"
         android:paddingHorizontal="10dp"
         android:text="View on site"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
