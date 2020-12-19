@@ -15,16 +15,9 @@ Contests is an Android app which contains the information about upcoming program
  This app also allows users to add the contest available in the app to the Google Calendar.
 # Screenshots
 
-<img src="./screenshots/screenshot1.png" width="300px"> <img src="./screenshots/screenshot2.png" width="300px"> <img src="./screenshots/screenshot3.png" width="300px"> <img src="./screenshots/screenshot4.png" width="300px"> <img src="./screenshots/screenshot5.png" width="300px"> <img src="./screenshots/screenshot6.png" width="300px">
-
----
-### Todo
-
- 1. Add settings activity to customize home screen 
- 2. Improve UI of activities
- 3. more to come ...
+<img src="./screenshots/screenshot3.png" width="300px"> <img src="./screenshots/screenshot2.png" width="300px"> <img src="./screenshots/screenshot1.png" width="300px"> <img src="./screenshots/screenshot4.png" width="300px"> 
 
 ---
 **API Used:** [https://kontests.net/api](https://kontests.net/api)
 
-**Apk Link:** [Download Apk](https://github.com/Ankit2305/ImageResources/raw/master/Contests%20Apk/Contests.apk)
+**Apk Link:** [Download Apk](https://github.com/Ankit2305/Contests/releases)
